@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.9.10](https://github.com/clawvisor/clawvisor/compare/v0.9.9...v0.9.10) (2026-06-08)
+
+
+### Features
+
+* **autovault:** script sessions for credentialed fan-out workflows ([#506](https://github.com/clawvisor/clawvisor/issues/506)) ([04953fe](https://github.com/clawvisor/clawvisor/commit/04953feb00b2220de40de24f469b837c70e40e0d))
+* **lite-proxy:** one-paste install flow with passthrough-first smoke test ([#525](https://github.com/clawvisor/clawvisor/issues/525)) ([32db87d](https://github.com/clawvisor/clawvisor/commit/32db87d88d2d707d05ac1d95a483df3c20f694fe))
+* **llmproxy:** LLM judge for variable-ized script-session calls ([#529](https://github.com/clawvisor/clawvisor/issues/529)) ([4251d81](https://github.com/clawvisor/clawvisor/commit/4251d8149e30685354ceef8e3692522d5a6a616b))
+* **llmproxy:** log upstream 4xx/5xx response bodies ([#519](https://github.com/clawvisor/clawvisor/issues/519)) ([ea83dfa](https://github.com/clawvisor/clawvisor/commit/ea83dfa55d2133d5aaee4824634ffda9d2ec4ee0))
+* **llmproxy:** slide session task expires_at on each authorized tool_use ([#505](https://github.com/clawvisor/clawvisor/issues/505)) ([ad5f307](https://github.com/clawvisor/clawvisor/commit/ad5f30791c962a7140b7240d0eece43a07fa7629))
+* **llmproxy:** split control-plane notices by role — backticked [Clawvisor] for humans, &lt;clawvisor-notice&gt; tag for the LLM ([#504](https://github.com/clawvisor/clawvisor/issues/504)) ([d70e1c8](https://github.com/clawvisor/clawvisor/commit/d70e1c8988a2868d321cd007075a04be98a14443))
+* **pricing:** add claude-opus-4-8 row ([#498](https://github.com/clawvisor/clawvisor/issues/498)) ([c986aa6](https://github.com/clawvisor/clawvisor/commit/c986aa6f5fa8cb4f316dde868548f4b4d38b7b68))
+* **web:** tell user to approve connection request in bootstrap curl ([#518](https://github.com/clawvisor/clawvisor/issues/518)) ([bc111ac](https://github.com/clawvisor/clawvisor/commit/bc111ac95f664d7fcb8f828300bd627ff0b8d5b8))
+
+
+### Bug Fixes
+
+* **autovault:** surface concrete example curl in script-session mint response ([#514](https://github.com/clawvisor/clawvisor/issues/514)) ([34c0da4](https://github.com/clawvisor/clawvisor/commit/34c0da4d01481207dbb08d8a22aef0c21f1408d7))
+* **installer:** route registration to app host, not LLM proxy ([#531](https://github.com/clawvisor/clawvisor/issues/531)) ([10159c4](https://github.com/clawvisor/clawvisor/commit/10159c4fc37a1c24936d16000381fc2890f3f106))
+* **llmproxy:** byte-faithful Anthropic request and response rewriting ([#511](https://github.com/clawvisor/clawvisor/issues/511)) ([d6f7d7f](https://github.com/clawvisor/clawvisor/commit/d6f7d7f0b54b567284ce80015cdf31bf9afb802f))
+* **llmproxy:** embed approval marker in coalesced per-turn prompt ([#517](https://github.com/clawvisor/clawvisor/issues/517)) ([e4d20b4](https://github.com/clawvisor/clawvisor/commit/e4d20b40bab7c7305a932d7424fdb08e3a59335c))
+* **llmproxy:** fire sliding task slide on EvaluateAuthorization VerdictAllow ([#520](https://github.com/clawvisor/clawvisor/issues/520)) ([fc2e3e6](https://github.com/clawvisor/clawvisor/commit/fc2e3e6b1988794091234c39d3dafd617972e623))
+* **llmproxy:** isolate choice rewrites and support inline blocked tool substitutions ([#522](https://github.com/clawvisor/clawvisor/issues/522)) ([a3ed02a](https://github.com/clawvisor/clawvisor/commit/a3ed02ad75253c69718d45a7592809db414b034f))
+* **llmproxy:** pass preferred task id during approval release ([#502](https://github.com/clawvisor/clawvisor/issues/502)) ([8319c2e](https://github.com/clawvisor/clawvisor/commit/8319c2e2a6945b6c2fde31accce27e4482ed65f4))
+* **llmproxy:** persist script sessions and log resolver IO ([#527](https://github.com/clawvisor/clawvisor/issues/527)) ([5cab897](https://github.com/clawvisor/clawvisor/commit/5cab897e8f28d7d83266b33f47f7695c3bb0f95c))
+* **llmproxy:** preserve empty `thinking` field on thinking_delta re-emit ([#510](https://github.com/clawvisor/clawvisor/issues/510)) ([2dde8f1](https://github.com/clawvisor/clawvisor/commit/2dde8f13551ffe3d3287e1d6cecc6a2eb4ce3817))
+* **llmproxy:** preserve index 0 for thinking blocks in Anthropic SSE stream ([#507](https://github.com/clawvisor/clawvisor/issues/507)) ([9cd0b10](https://github.com/clawvisor/clawvisor/commit/9cd0b10542e45694036c02f9fbb1ee778b809287))
+* **llmproxy:** treat tool_search and reasoning items as approval-reply staleness signals ([#515](https://github.com/clawvisor/clawvisor/issues/515)) ([44ac826](https://github.com/clawvisor/clawvisor/commit/44ac826d0297a5f962f0fcfd4f6cf97acceeb580))
+* **raw-log-viewer:** align transcript diff via LCS instead of positional pairing ([#509](https://github.com/clawvisor/clawvisor/issues/509)) ([d5d1ced](https://github.com/clawvisor/clawvisor/commit/d5d1cedeed7293e19e7b05c7928a8be4b37d88e5))
+* **runtime:** handle stream write errors and sanitize fallback SSE comments ([#523](https://github.com/clawvisor/clawvisor/issues/523)) ([f02f6d5](https://github.com/clawvisor/clawvisor/commit/f02f6d51c5d4004c5af9d207ed809f4014001d32))
+
 ## [0.9.9](https://github.com/clawvisor/clawvisor/compare/v0.9.8...v0.9.9) (2026-06-02)
 
 
